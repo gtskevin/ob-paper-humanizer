@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+  <defs>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        .bg { fill: #0f172a; }
+        .title { fill: #f1f5f9; }
+        .sub { fill: #94a3b8; }
+      }
+    </style>
+  </defs>
+  <rect class="bg" width="800" height="200" rx="16" fill="#f8fafc"/>
+  <rect x="0" y="0" width="800" height="4" rx="2" fill="#6366f1"/>
+  <text x="400" y="82" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif"
+        font-size="38" font-weight="800" class="title" fill="#0f172a" letter-spacing="-0.5">
+    OB Paper Humanizer
+  </text>
+  <text x="400" y="118" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif"
+        font-size="15" class="sub" fill="#64748b">
+    Turn AI-flavored academic prose into writing that sounds like a seasoned OB scholar
+  </text>
+  <rect x="215" y="140" width="130" height="28" rx="14" fill="#6366f1" opacity="0.1"/>
+  <text x="280" y="159" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="#6366f1">
+    17 AI Patterns
+  </text>
+  <rect x="360" y="140" width="100" height="28" rx="14" fill="#059669" opacity="0.1"/>
+  <text x="410" y="159" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="#059669">
+    AMJ / ASQ
+  </text>
+  <rect x="475" y="140" width="110" height="28" rx="14" fill="#d97706" opacity="0.1"/>
+  <text x="530" y="159" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="#d97706">
+    Claude / Codex
+  </text>
+</svg>
