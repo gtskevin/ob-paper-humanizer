@@ -39,6 +39,55 @@ Three principles:
 2. **Specificity over breadth** — AI hedges and covers all angles. Real papers take positions and defend them.
 3. **Rhythm over uniformity** — AI sentences tend toward similar length and structure. Real writing has intentional variation.
 
+## Important: AI Detector Limitations
+
+Current AI detectors (Turnitin, GPTZero, Originality, etc.) are unreliable on academic text:
+- False positive rates range from 0.05% to 68.6% depending on the tool (UF/IEEE S&P 2026)
+- Scientific writing's inherent features (high lexical density, repeated terminology, formulaic structure) overlap with what detectors flag as AI-generated
+- Human experts distinguish AI from human text at only 57-70% accuracy — barely above chance
+- No text-only detector can escape false positives when human and AI writing distributions overlap (proven mathematically; arxiv 2603.20254)
+
+**Therefore, this skill's goal is NOT evading AI detectors. It is improving OB writing quality.** Good OB writing naturally differs from AI output — not because you deliberately avoid AI patterns, but because good writing has depth, stance, and insight that AI cannot replicate.
+
+## Decision Tree (Applied BEFORE Any Pattern Rule)
+
+Before flagging or fixing any pattern, run this four-gate check:
+
+1. **Is this pattern an OB writing convention for this section type?** (See Section-Specific Rules below)
+   → If YES: Do not flag. Skip.
+2. **Would fixing this pattern improve writing quality** (not just "remove AI-ness")?
+   → If UNCLEAR: Do not suggest a change. Flag as "review optional" only.
+3. **Would the proposed fix introduce a Mechanical Replacement pattern** (Category 12)?
+   → If YES: Redesign the fix or abandon it.
+4. **Only changes passing all three gates should be suggested to the user.**
+
+## Do-Not-Touch List: OB Conventions That Are NOT AI Signals
+
+These writing features are standard OB disciplinary conventions. They may resemble AI patterns but should **never** be flagged or modified:
+
+- **Standard hedging in hypothesis and results sections**: "Our findings suggest that X is positively related to Y" uses two hedging devices and is appropriate for correlational research
+- **Funnel-structure introductions** (broad context → narrowing → gap → contribution): This is the expected AMJ/JAP introduction format, not an AI template
+- **"We argue" / "We propose" / "We predict"**: Expected stance-taking language in OB theory sections
+- **Method section standard templates**: Describing sample, procedure, measures in a predictable order with standard phrasing is correct, not formulaic
+- **Transition words in theory development** (furthermore, moreover, in addition): These serve logical argumentation in OB and are not AI signals when used in context
+- **Contribution statements** (when specific): "This study contributes to the [theory] literature by [specific mechanism/boundary condition]" is expected — only flag when the contribution is genuinely vague
+- **Hypothesis formatting**: "H1: X is positively related to Y" is the standard format; do not rephrase for variety
+- **Effect size and significance reporting**: Standard reporting language in results sections should not be varied for "rhythm"
+
+## Section-Specific Rules
+
+Different manuscript sections have different tolerances for patterns. Apply rules with this calibration:
+
+| Section | Active Patterns | Suppressed Patterns | Rationale |
+|---------|----------------|-------------------|-----------|
+| Introduction | 1, 3, 6, 15 | 7, 5 (partial) | Introductions may follow funnel structure; do not enforce variety |
+| Theory / Hypotheses | 1, 4 (cautious), 6, 13, 14, 16, 17 | 5, 7, 8 | Theory needs clear stance and logical chain; hedging is appropriate for predictions |
+| Methods | 9, 15, 17 | 2, 4, 5, 7 | Methods should maintain standard templates and uniform structure |
+| Results | 15, 17 | 2, 4, 5, 7 | Results should maintain standard reporting format |
+| Discussion | 1, 3, 6, 10, 15, 16, 17 | 7 (partial) | Discussion allows more voice and structural variation |
+
+**How to use this table**: When scanning a section, only flag patterns listed as "Active" for that section. Patterns listed as "Suppressed" should still be noted in the diagnostic report but marked as "section-appropriate — no change recommended."
+
 ## AI Pattern Detection — What to Look For
 
 Scan the text for these patterns before editing. Each pattern includes the AI version, why it signals AI, and what a human OB scholar would write instead.
@@ -184,9 +233,11 @@ AI sprinkles citations throughout without connecting them to the argument. The c
 
 **Fix**: Every citation should be doing work — supporting a specific claim, identifying a gap, or characterizing a finding. If you can delete a citation and the sentence still makes the same point, the citation is decorative. Use citations to show you know the literature, not to fill space.
 
-### Category 12: Mechanical Replacement Patterns
+### META-RULE: Category 12 — Mechanical Replacement Patterns (Governs All Other Categories)
 
-When fixing AI patterns, the revision itself can become mechanically uniform — replacing *empty* patterns with *mechanical* patterns. This is a second-order AI signal.
+> **This category is a meta-rule. It applies to EVERY fix suggested by Categories 1-11 and 13-17.** Before finalizing any suggestion, verify it does not trigger this pattern.
+
+When fixing AI patterns, the revision itself can become mechanically uniform — replacing *empty* patterns with *mechanical* patterns. This is a second-order AI signal and the most common failure mode of humanization.
 
 **Signs of mechanical replacement**:
 - Every design choice gets exactly one sentence of rationale (uniform justification cadence)
@@ -194,8 +245,11 @@ When fixing AI patterns, the revision itself can become mechanically uniform —
 - Every mechanism is explained with the same level of detail (uniform specificity)
 - Sentences are all 25-40 words with embedded clauses (uniform complexity)
 - Paragraphs follow a perfect topic-support-conclusion structure (uniform paragraph architecture)
+- Sentence lengths are deliberately varied in an alternating pattern (synthetic rhythm)
 
 **Fix**: Vary the texture. Some design choices deserve a paragraph of justification; others can be stated without explanation because they are standard practice. Some claims need citations; others are common knowledge. Some mechanisms need detailed unpacking; others can be named because the audience knows them. The goal is writing that breathes — not a checklist being worked through.
+
+**Meta-rule enforcement**: If three or more consecutive fixes exhibit the same modification pattern (e.g., all removing the first two words, all shortening sentences, all adding parenthetical citations), stop and reassess the approach. Batch-apply only fixes that are individually justified and collectively varied.
 
 ### Category 13: Gloss Parentheses
 
@@ -247,34 +301,39 @@ Determine what the user has provided:
 
 | Input | Action |
 |---|---|
-| Full manuscript | Process section by section; prioritize theory and introduction |
-| Single section | Process that section in full |
-| Specific paragraph(s) | Process those paragraphs |
+| Full manuscript | Process section by section; identify section type for each; prioritize theory and introduction |
+| Single section | Identify section type (intro/theory/methods/results/discussion); apply section-specific rules |
+| Specific paragraph(s) | Infer section type from content; apply section-specific rules |
 | "Check if this sounds like AI" | Scan for patterns, report findings, then offer revision |
 | "Just fix it" or "auto mode" | Skip confirmation, apply all changes (user explicitly opted in) |
 | Vague request | Ask which section(s) to focus on |
 
+**Section identification is mandatory.** Before scanning, classify the text as one of: Introduction, Theory/Hypotheses, Methods, Results, or Discussion. This classification determines which patterns are active (see Section-Specific Rules above).
+
 ### Step 1: Pattern Scan (Automatic)
 
-Read the text and identify all AI patterns from the 17 categories. Create an explicit inventory:
+Read the text and identify AI patterns. **Apply the Decision Tree first** — skip any pattern that is an OB convention for the current section type (see Do-Not-Touch List and Section-Specific Rules).
+
+Create an explicit inventory:
 
 - Which categories appear?
-- How severe is each? (occasional vs. pervasive)
+- Of those, which are section-appropriate conventions (suppress from suggestions)?
+- How severe is each remaining pattern? (occasional vs. pervasive)
 - Are there patterns NOT in the 17 categories that still signal AI?
 
-**Sentence rhythm diagnostic**: Count the words in each sentence of a representative paragraph. If the range is less than 15 words (e.g., all sentences between 22 and 35 words), the rhythm is monotonous. Real writing has sentences ranging from 8 to 45+ words within the same paragraph.
+**Sentence rhythm diagnostic**: Count the words in each sentence of a representative paragraph. If the range is less than 15 words (e.g., all sentences between 22 and 35 words), the rhythm is monotonous. **Note: This diagnostic is only meaningful for Introduction, Theory, and Discussion sections. Methods and Results sections are expected to have uniform sentence lengths.**
 
 ### Step 2: Prioritize (Automatic)
 
-Not all patterns are equal. Prioritize:
+Not all patterns are equal. **After filtering through the Decision Tree and Section-Specific Rules**, prioritize the remaining flagged patterns:
 
 1. **P0 — Hollow framing phrases**: Strongest AI signal, easiest to fix.
 2. **P1 — Generic contribution claims + Implications inflation**: Weakens positioning.
-3. **P2 — Hedging overload**: Undermines credibility.
-4. **P3 — Transition monotony**: Rhythmic AI signal.
-5. **P4 — Sentence structure monotony**: Subtle but cumulative.
+3. **P2 — Hedging overload**: Undermines credibility — but only flag if genuinely excessive (3+ hedges per claim), not standard academic hedging.
+4. **P3 — Transition monotony**: Rhythmic AI signal — but only in sections where variety is expected (Introduction, Theory, Discussion).
+5. **P4 — Sentence structure monotony**: Subtle but cumulative — only in sections where variety is expected.
 6. **P5 — Lack of scholarly voice + Mechanistic placeholders**: Requires judgment.
-7. **P6 — Formulaic section patterns + Post-hypothesis summaries + Methods without rationale**: May require structural revision.
+7. **P6 — Formulaic section patterns + Post-hypothesis summaries + Methods without rationale**: May require structural revision — but only flag if the section type allows it.
 8. **P7 — Decorative citations**: Low urgency.
 
 ### Step 3: Generate Suggestions (Automatic, but not applied)
@@ -288,6 +347,8 @@ For each identified pattern, prepare a suggestion:
 5. **Confidence** — High/Medium/Low (how confident you are this change improves the text)
 
 **Surgical principle**: Prefer vocabulary substitutions over structural rewrites. The goal is to clean the author's text, not rewrite it. Preserve sentence structure, paragraph organization, and rhetorical stance unless they are clearly AI-generated.
+
+**Meta-rule check (Category 12)**: Before finalizing each suggestion, verify that the proposed fix does not create a mechanical pattern. If three or more consecutive suggestions use the same transformation type (e.g., all remove first two words, all shorten sentences), vary the approach or drop the least impactful suggestion.
 
 **Do NOT apply changes yet.** Present suggestions for user review.
 
@@ -341,6 +402,21 @@ Report any remaining issues, but do not auto-fix them. Flag for user attention.
 
 **Note on under-correction**: The suggestion mode intentionally prioritizes surgical vocabulary fixes over structural rewrites. This means some patterns (sentence rhythm, generic contribution claims) may be flagged but not automatically suggested for change. The quality check will flag these as "attention needed" items that the user can address manually or request specific suggestions for.
 
+### Step 7: Regression Check (Automatic)
+
+After quality check, run a final regression check on the revised text:
+
+1. **Convention preservation**: Does the revised text still comply with OB writing conventions for its section type? If any standard convention was disrupted (e.g., hedging removed from a hypothesis, funnel structure broken in an introduction), revert that change and flag it.
+2. **New AI signal check**: Did any fixes introduce new AI-detectable patterns? Specifically check for:
+   - Artificially varied sentence lengths (alternating short-long pattern)
+   - Uniform justification cadence (every claim now has exactly one rationale)
+   - Over-correction markers (text now sounds defensive or performative)
+3. **Meaning preservation**: Does every changed sentence preserve the original's propositional content? If meaning drifted, revert and flag.
+4. **Regression score**: Report what percentage of suggested changes were reverted by this step.
+   - If **< 10% reverted**: Optimization successful.
+   - If **10-30% reverted**: Some tension between rules — report to user and let them decide.
+   - If **> 30% reverted**: The original text may not need humanization, or the section type was misidentified. Recommend user review the full text without auto-correction.
+
 ## Output Format
 
 ### For Suggestion Mode (Default)
@@ -350,7 +426,10 @@ Provide a structured suggestion list:
 ```
 ## AI Pattern Scan Results
 
+**Section type**: [Introduction / Theory / Methods / Results / Discussion]
+**Target journal**: [AMJ / ASQ / JAP / etc.]
 **Patterns detected**: [list of categories with severity]
+**Section-appropriate (not flagged)**: [list of patterns suppressed by Section-Specific Rules]
 **Total suggestions**: [N]
 
 ---
@@ -380,6 +459,7 @@ Provide a structured suggestion list:
 **Approved changes applied**: [N]
 **Rejected**: [N]
 **Quality check**: [pass/fail with issues]
+**Regression check**: [N% reverted — low/medium/high concern]
 ```
 
 ### For Auto Mode (User Explicitly Opted In)
@@ -387,15 +467,20 @@ Provide a structured suggestion list:
 Provide:
 
 1. **Clean revised text** — the humanized version, ready to paste
-2. **Change summary** — brief table of what was changed and why
-3. **Quality check** — pass/fail with issues
+2. **Section type identified** — which section was processed
+3. **Change summary** — brief table of what was changed and why, with section-specific rationale
+4. **Quality check** — pass/fail with issues
+5. **Regression check** — percentage of changes reverted and reason
 
 ### For Diagnostic Requests ("Does this sound like AI?")
 
 Provide:
 
-1. **Pattern inventory** — which categories appear, with severity
-2. **Top 5 fixes** — highest-impact changes, with examples
+1. **Section type** — inferred section classification
+2. **Pattern inventory** — which categories appear, with severity
+3. **Section-appropriate patterns** — patterns present but consistent with OB conventions for this section
+4. **Genuine concerns** — patterns that are actual AI signals in this section context
+5. **Top 5 fixes** — highest-impact changes, with examples (only from "genuine concerns")
 3. **Offer to revise** — "Want me to generate suggestions for these?"
 
 ## OB-Specific Writing Norms
