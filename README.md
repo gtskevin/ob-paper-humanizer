@@ -21,9 +21,11 @@
 | | Feature | Why it matters |
 |---|---------|---------------|
 | 🔍 | **17 AI Pattern Categories** | Catch hollow framing, transition monotony, hedging overload, and 14 more signals reviewers are trained to spot |
+| 📋 | **Section-Aware Rules** | Methods sections keep their templates; introductions keep their funnel structure — the skill knows what's an OB convention vs. an AI signal |
 | 🎯 | **Journal-Calibrated Voice** | Tailored for AMJ, ASQ, Org Science, JAP, OBHDP, JOM, JOB, PP — each journal has a distinct voice |
 | ✂️ | **Surgical Edits, Not Rewrites** | Preserves your argument, structure, and meaning — only removes the AI fingerprints |
-| 🔬 | **Baseline-Tested** | Validated against 2020–2022 AMJ/JAP papers (pre-ChatGPT era) with three-way comparison |
+| 🛡️ | **OB Convention Protection** | A Do-Not-Touch List + Decision Tree ensures legitimate academic writing (hedging, transitions, standard formats) is never "corrected" |
+| 🔬 | **Baseline-Tested** | Validated against 2020–2022 AMJ/JAP papers (pre-ChatGPT era) with A/B evaluation across 5 section types |
 | 🛡️ | **Academic Integrity Guard** | Never fabricates data, never misrepresents citations, never adds false precision |
 
 ## Quick Start
@@ -83,11 +85,15 @@ curl -sL https://raw.githubusercontent.com/gtskevin/ob-paper-humanizer/main/SKIL
 
 ```
 1. Paste your manuscript section (intro, theory, methods, results, discussion)
-2. The skill scans for 17 categories of AI-detectable patterns
-3. You get a structured suggestion list: each change shows original → suggested → risk → confidence
-4. Accept, reject, or modify each suggestion individually
-5. Quality check runs automatically on approved changes
+2. The skill identifies the section type and applies section-specific rules
+3. A Decision Tree filters out OB conventions that look like AI but aren't
+4. Remaining patterns are scanned across 17 categories (only active ones for this section)
+5. You get a structured suggestion list: each change shows original → suggested → risk → confidence
+6. Accept, reject, or modify each suggestion individually
+7. Quality check + Regression check run automatically on approved changes
 ```
+
+> 📖 **Why section-specific rules?** Methods sections are *supposed* to be formulaic. Introductions *should* follow a funnel structure. Hedging in hypotheses is *required*. Without section awareness, a humanizer would "correct" things that are actually correct OB writing. This skill avoids that trap.
 
 ### Example: Before vs After
 
@@ -112,7 +118,7 @@ curl -sL https://raw.githubusercontent.com/gtskevin/ob-paper-humanizer/main/SKIL
 | 9 | Methods Without Rationale | **P6** | Procedures listed, no justification |
 | 10 | Implications Inflation | **P1** | "Organizations should consider..." |
 | 11 | Decorative Citations | **P7** | Citations that do no intellectual work |
-| 12 | Mechanical Replacement | **P4** | Second-order AI signal in revisions |
+| 12 | Mechanical Replacement *(META-RULE)* | **P4** | Second-order AI signal in revisions — governs all other categories |
 | 13 | Gloss Parentheses | **P4** | "(reduced vigilance)" re-defining what was just explained |
 | 14 | Metacommentary Announcements | **P4** | "This section proceeds in four steps." |
 | 15 | False Precision | **P0** | Fabricated beta values or statistics |
@@ -140,10 +146,11 @@ Once installed, just paste your text and ask:
 
 | Approach | Problem |
 |----------|---------|
-| **Generic AI detectors** (Turnitin, GPTZero) | Tell you *if* text is AI-like, but not *how to fix it* |
+| **Generic AI detectors** (Turnitin, GPTZero) | Tell you *if* text is AI-like, but not *how to fix it* — and often wrong on academic text |
 | **Paraphrasing tools** (QuillBot, etc.) | Swap words but don't address structural AI patterns |
+| **AI humanizer tools** (WriteHuman, etc.) | Bypass detectors but don't improve writing quality; often introduce new AI signals |
 | **Manual editing** | You may not know what to look for — 17 categories is a lot |
-| **OB Paper Humanizer** | Detects *and* fixes, journal-calibrated, surgical not destructive |
+| **OB Paper Humanizer** | Detects *and* fixes, journal-calibrated, section-aware, surgical not destructive |
 
 ## FAQ
 
@@ -151,6 +158,8 @@ Once installed, just paste your text and ask:
 <summary>Will this help me pass AI detectors like Turnitin?</summary>
 
 The goal is not to "trick" detectors — it is to **write well**. Good academic writing in OB naturally differs from AI-generated text. When you fix the writing, the detector problem dissolves. This skill makes your paper sound like a *seasoned OB scholar wrote it*, which is what reviewers want regardless of AI involvement.
+
+**A note on detector reliability**: Current AI detectors are unreliable on academic text. Studies show false positive rates of 0.05%–68.6% depending on the tool, and scientific writing is particularly vulnerable to misclassification because its features (formal register, formulaic structure, technical precision) overlap with what detectors flag as AI-generated. Human experts distinguish AI from human text at only 57–70% accuracy — barely above chance. This skill focuses on writing quality, not detector scores.
 </details>
 
 <details>
